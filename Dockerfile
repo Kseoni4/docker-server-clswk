@@ -1,9 +1,3 @@
-FROM maven:latest AS build
-WORKDIR /build
-COPY src /build
-COPY pom.xml /build
-RUN mvn clean package && ls -a
-
 FROM bellsoft/liberica-openjre-alpine:22-cds AS layers
 WORKDIR /application
 COPY --from=build /target/*.jar app.jar
