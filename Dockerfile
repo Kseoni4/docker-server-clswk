@@ -1,8 +1,7 @@
 FROM maven:latest AS build
 WORKDIR /build
 COPY . /build
-RUN ls -a
-RUN mvn --version
+RUN mvn --version && ls -a && mvn clean package && ls -a
 
 FROM bellsoft/liberica-openjre-alpine:22-cds AS layers
 WORKDIR /application
