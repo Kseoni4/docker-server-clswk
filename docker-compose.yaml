@@ -1,7 +1,11 @@
 services:
   docker-server-clswk:
     image: docker-server-clswk:latest
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        DOCKER_BUILDKIT: 1
     restart: "no"
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
