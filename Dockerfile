@@ -6,7 +6,7 @@ RUN mvn --version
 
 FROM bellsoft/liberica-openjre-alpine:22-cds AS layers
 WORKDIR /application
-COPY target/*.jar app.jar
+COPY --from=build /target/*.jar app.jar
 RUN java -Djarmode=tools -jar app.jar extract --layers --destination extracted
 
 FROM bellsoft/liberica-openjre-alpine:22-cds
