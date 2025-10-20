@@ -11,6 +11,7 @@ services:
       DATABASE_USER: ${DATABASE_USER}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       DATABASE_URL: ${DATABASE_URL}
+      SERVER_PORT: ${SERVER_PORT}
   postgresql:
     image: postgres:18.0
     restart: "no"
